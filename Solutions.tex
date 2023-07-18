@@ -1586,7 +1586,7 @@ Given that the distance function is continuous, it maps connected sets onto conn
     \item Let $x\in\X$ and let $\B = \{ B_{n} \}_{n\in\N}$ be a countable base for $x$, let's see that $x = \bigcap_{n}B_{n}$.
     
     Let $y\in\cap_{n}B_{n}$, suppose by contradiction that $y\neq x$. Given that $\X$ is $T_{1}$ we know that there exist neighbourhoods $U,V$ of $x$ and $y$ respectively such that $y\notin U$ and $x\notin V$. Because $\X$ is 1° countable then there exists $n_{0}$ such that $B_{n_{0}}\subset U$ and $y\in B_{n_{0}}$, which is a contradiction. Then $x = \bigcap_{n}B_{n}$.
-    \item $\R^\omega$ with $\T_{\text{box}}$ is not 1° countable, given $x\in\R^\omega$ let $U_{n}^i = (x_{i}-1/n, x_{i}+1/n)$, $\{ U_{n}^i \}_{n}$ is a local basis of each $x_{i}$ such that $\bigcup_{n}U_{n}^i = x_{i}$, therefore, $\bigcap_{n}\big( \prod_{i}U_{n}^i \big) = x$.
+    \item $\R^\omega$ with $\T_{\text{box}}$ is not 1° countable, but given $x\in\R^\omega$ let $U_{n}^i = (x_{i}-1/n, x_{i}+1/n)$, $\{ U_{n}^i \}_{n}$ is a local basis of each $x_{i}$ such that $\bigcap_{n}U_{n}^i = \{ x_{i} \}$, therefore, $\bigcap_{n}\big( \prod_{i}U_{n}^i \big) = \{ x \}$.
    \end{enumerate}
 \end{solution}
 
@@ -1596,8 +1596,8 @@ Given that the distance function is continuous, it maps connected sets onto conn
 \begin{solution}
   Let $\{ B(x,1/n) \}_{x\in\X}$ be a covering of $\X$, because it is compact, there exists a finite subcover $\{ B(x_{i},1/n) \}_{i=1}^{m(n)}$. Consider $\B = \bigcup_{n\in\N}\{ B(x_{i},1/n) \}_{i=1}^{m(n)}$, $\B$ is a basis:
   \begin{enumerate}
-    \item If $x\in\X$ then $x\in B(x,1/n)$ for some $n$.
-    \item If $x\in B(x_{i},1/n_{i})\cap B(x_{j},1/n_{j})$ then there exist $r_{i}$, $r_{j}$ and $y$ such that $B(y,r_{i})\subset B(x_{i},1/n_{i})$ and $B(y,r_{j})\subset B(x_{j},1/n_{j})$. Taking $t = \min(r_{1},r_{2})$ we have that there exists $B(x_{n_{0}},1/n_{0}) \subset B(y,r)$ that contains $x$.
+    \item If $x\in\X$ then $x\in B(x_{i},1/n)$ for some $i$ and $n$, because $\{ B(x_{i},1/n) \}$ was a cover of $\X$.
+    \item If $x\in B(x_{i},1/n_{i})\cap B(x_{j},1/n_{j})$ then there exist $r_{i}$, $r_{j}$ and $y$ such that $B(y,r_{i})\subset B(x_{i},1/n_{i})$ and $B(y,r_{j})\subset B(x_{j},1/n_{j})$. Taking $r = \min(r_{1},r_{2})$ we have that there exists $B(x_{n_{0}},1/n_{0}) \subset B(y,r)$ that contains $x$.
   \end{enumerate}
 \end{solution}
 
@@ -1618,14 +1618,14 @@ Given that the distance function is continuous, it maps connected sets onto conn
   Show that $\R_{\ell}$ and $I_{0}^2$ are not metrizable.
 \end{exerr}
 \begin{solution}
-  We know that if a space is metrizable and separable then it is 2° countable. As $\R_{\ell}$ is not 2° countable and is separable (with $\Q$) then it cannot be metrizable. $I_{0}^2$ is compact, because us it is a linear continuum, then it also cannot be metrizable, because if it was, then it would be separable, which is not.
+  We know that Lindelöf + Metrizable $\implies$ 2° countable. As $\R_{\ell}$ is not 2° countable and is Lindelöf, then it cannot be metrizable. Also, Compact + Metrizable $\implies$ Separable, $I_{0}^2$ is compact, because us it is a linear continuum, then it also cannot be metrizable, because it is not separable.
 \end{solution}
 
 \begin{exerr}{8}
   Which of our four countability axioms does $\R^\omega$ in the uniform topology satisfy?
 \end{exerr}
 \begin{solution}
-  We've seen in the book that $\R^\omega$ with the uniform topology is 1° countable, it is not 2° countable because !!!. It is also not Lindelöf nor separable because of what we've proven in Exercise 5.
+  We've seen in the book that $\R^\omega$ with the uniform topology is 1° countable, it is not 2° countable (done in the book), It is also not Lindelöf nor separable because of what we've proven in Exercise 5.
 \end{solution}
 
 \begin{exerr}{9}
@@ -1651,7 +1651,7 @@ Given that the distance function is continuous, it maps connected sets onto conn
   Show that if $\X$ is Lindelöf and $\Y$ is compact, then $\X\times\Y$ is Lindelöf.
 \end{exerr}
 \begin{solution}
-  We will take a covering formed by elements of the basis $\{ U_{\alpha}\times V_{\alpha} \}_{\alpha}$ of $\X\times\Y$. Given $x_{0}\in\X$, $x_{0}\times\Y$ is compact and there exists $\{ U_{\alpha_{i}}\times V_{\alpha_{i}} \}_{i=1}^m$, a finite subcover of $x_{0}\times\Y$. Let $U_{x_{0}} = \bigcap_{i=1}^m U_{\alpha_{i}}$. The family $\{ U_{x} \}_{x\in\X}$ is a covering of $\X$ and there exists a countable subcover $\{ U_{x_{n}}^i \}_{i\in\N}$, consider the countable family $\{ U_{x_{n}}^i\times V_{x_{n}}^i \}_{i\in\N}$. Let $x,y\in\X\times\Y$, $x_{n}\in U_{n}$ for some $n$, then $x_{n}\times y\in U_{x_{n}}^i\times V_{x_{n}}^i$ for some $i$, therefore, $x\times y\in U_{x_{n}}\times V_{x_{n}}^i\subset U_{x_{n}}^i\times V_{x_{n}}^i.$
+  We will take a covering formed by elements of the basis $\{ U_{\alpha}\times V_{\alpha} \}_{\alpha}$ of $\X\times\Y$. Given $x_{0}\in\X$, $x_{0}\times\Y$ is compact and there exists $\{ U_{\alpha_{i}}\times V_{\alpha_{i}} \}_{i=1}^m$, a finite subcover of $x_{0}\times\Y$. Let $U_{x_{0}} = \bigcap_{i=1}^m U_{\alpha_{i}}$. The family $\{ U_{x} \}_{x\in\X}$ is a covering of $\X$ and there exists a countable subcover $\{ U_{x_{n}}^i \}_{i\in\N}$. Consider the countable family $\{ U_{x_{n}}^i\times V_{x_{n}}^i \}_{i\in\N}$. Let $x\times y\in\X\times\Y$, $x\in U_{x_n}$ for some $n$, then $x\times y\in U_{x_{n}}^i\times V_{x_{n}}^i$ for some $i$, and so the family in consideration is a countable subcover of $\X\times\Y$.
 \end{solution}
 
 \section*{Section 31: The Separation Axioms}
@@ -1701,7 +1701,15 @@ Given that the distance function is continuous, it maps connected sets onto conn
   Let $p:\X\to\Y$ be a closed continuous surjective map. Show that if $\X$ is normal, then so is $\Y$. [Hint: If $U$ is an open set containing $p^{-1}(y)$, show there is a neighbourhood $W$ of $y$ such that $p^{-1}(W)\subset U$.]
 \end{exerr}
 \begin{solution}
-  The singletons are closed because for every $x\in\X$, $\{ x \}$ is closed and because $p$ is a closed surjective function we have $p(\{ x \}) = \{ y \}$ is closed. !!
+  Singletons are closed because for every $x\in\X$, $\{ x \}$ is closed and given that $p$ is a closed surjective function, we have that $p(\{ x \}) = \{ y \}$ is closed.
+
+  Let $B\subset\Y$ be a closed set and $V$ a neighbourhood of $B$. We want to prove that there exists an open set $Z$ such that $B\subset Z\subset \overline{Z}\subset V$. The sets $A = p^{-1}(B)$ and $U = p^{-1}(U)$ are closed and open respectively because $p$ is continuous. Given that $\X$ is normal, there exists an open set $W$ such that $A\subset W\subset \overline{W}\subset U$, then $\X\backslash W$ is closed and using that $p$ is surjective yields $P(W)\subset \Y\backslash p(\X\backslash W)$. Denoting $p(W)$ by $Z$ we have
+  \begin{align*}
+    B &= p(A)\subset Z\subset\Y\backslash p(\X\backslash W)\subset p(V),\\
+    \overline{Z} &= \overline{p(W)} = p(\overline{W})\subset p(U) = V.
+  \end{align*}
+
+  Therefore, $\Y$ is normal.
 \end{solution}
 
 \section*{Section 32: Normal Spaces}
@@ -1770,14 +1778,14 @@ Given that the distance function is continuous, it maps connected sets onto conn
   Let $\X$ be completely regular; let $A$ and $B$ be disjoint closed subsets of $\X$. Show that if $A$ is compact, there is a continuous function $f:\X\to[0,1]$ such that $f(A)= \{ 0 \}$ and $f(B)=\{ 1 \}$.
 \end{exerr}
 \begin{solution}
-  Given that $\X$ is completely regular, for every $a\in A$, as $a\notin B$ there exists $f_{a}: \X\to[0,1]$ such that $f_{a}(a) = 0$ and $f_{a}(B)= \varnothing$. The family $\{ f_{a}^{-1}\big( [0,1/2) \big) \}_{a\in A}$ is a cover by open sets of $A$ (because each $f_{a}$ is continuous) and because $A$ is compact there exists a finite subcover $\{ f_{a_{i}}^{-1}\big( [0,1/2) \big) \}_{i=1}^m$. Define the functions
+  Given that $\X$ is completely regular, for every $a\in A$, as $a\notin B$ there exists $f_{a}: \X\to[0,1]$ such that $f_{a}(a) = 0$ and $f_{a}(B)= \{ 1 \}$. The family $\{ f_{a}^{-1}\big( [0,1/2) \big) \}_{a\in A}$ is a cover by open sets of $A$ (because each $f_{a}$ is continuous) and because $A$ is compact there exists a finite subcover $\{ f_{a_{i}}^{-1}\big( [0,1/2) \big) \}_{i=1}^m$. Define the functions
   \begin{equation*}
-    g(x) = \min_{i=1,\dots,m}f_{a_{i}}(x) \quad h(x) = \begin{cases}
+    g(x) = \min_{i=1,\dots,m}f_{a_{i}}(x); \quad h(x) = \begin{cases}
       0 &\text{if }x\in[0,1/2)\\
-      2x-1 &\text{if }x\in(1/2,1].
+      2x-1 &\text{if }x\in[1/2,1].
     \end{cases}
   \end{equation*}
-  The function $f = h\circ g$ is continuous and satisfies what we wanted.
+  The function $f = h\circ g$ is continuous and satisfies what we desired.
 \end{solution}
 
 \section*{Section 34: The Urysohn Metrization Theorem}
@@ -1839,7 +1847,7 @@ Given that the distance function is continuous, it maps connected sets onto conn
     \item Products of Lindelöf spaces need not be Lindelöf. Therefore, (I) does not hold. If one attempts to generalize the proof of Lemma 37.1 to the countable intersection property, at what point does the proof break down?
   \end{enumerate}
 \end{exerr}
-\begin{solution}
+\begin{solution}\hfill
   \begin{enumerate}[label=(\alph*)]
     \item Let $\A = \{ A_{\alpha} \}_{\alpha}$ be a family of sets in $\prod_{\alpha}\X_{\alpha}$ that satisfies the CIP. Let $\D = \{ D_{\beta} \}$ be the corresponding maximal family, $\overline{\pi_{\beta_{0}}(D_{\beta})}$ are closed and satisfy CIP.
     Given that $D_{\beta_{0}}$ is Lindelöf then $\bigcap_{\beta}\overline{(\pi_{\beta_{0}}(D_{\beta}))}\neq \varnothing$. Let $x_{\beta_{0}}\in\bigcap_{\beta}\overline{(\pi_{\beta_{0}}(D_{\beta}))}$, we do this for each $\beta_{0}$ and obtain $x = \prod_{\beta}x_{\beta}$, we want to see that $x\in \overline{D}$ for every $D\in\D$.
