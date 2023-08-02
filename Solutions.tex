@@ -984,7 +984,7 @@ These are my solutions to selected exercises of Munkres' Topology. \textbf{Be aw
     \item Let's start with $w_{n}$.\\
 
           \textbf{Box:} It doesn't converge. $U = (-1,1)\times(-1,1)\times\cdots$ is a neighbourhood of $0$, but it does not contain any $w_{n}$ for $n\geq 1$.\\
-          \textbf{Uniform:} It doesn't converge. $B_{\overline{\rho}}(0,\varepsilon)$, $\overline{\rho}(0,w_{n})=0$, then, if $\varepsilon<1$ the ball does not contain any $w_{n}$.\\
+          \textbf{Uniform:} It doesn't converge. $B_{\overline{\rho}}(0,\varepsilon)$, $\overline{\rho}(0,w_{n})=n\geq1$, then, if $\varepsilon<1$ the ball does not contain any $w_{n}$.\\
           \textbf{Product:} It converges to $0$. Given $U = \prod_{\alpha\in J}U_{\alpha}$ with $U_{\alpha} = \R$ except for finite $\alpha$. If $U$ is a neighbourhood of $0$, let $N = \max\{ \alpha: U_{\alpha}\neq\R  \}+1$, then $U\ni w_{n}$ for every $n\geq N$.\\
 
           Now let's study $x_{n}$.\\
@@ -1527,7 +1527,7 @@ Given that the distance function is continuous, it maps connected sets onto conn
   Show that $[0,1]$ is not limit point compact as a subspace of $\R_{\ell}$.
 \end{exerr}
 \begin{solution}
-  The set $A = \{ 1-\frac{1}{n} : n\in\N \}$ has no limit points in $\R_{\ell}$, there exists a neighbourhood $[1,2)\cap [0,1]$ that do not contain points of $A$, and if $x\in[0,1]$, $x\neq1$ then there exists $N\in\N$ such that
+  The set $A = \{ 1-\frac{1}{n} : n\in\N \}$ has no limit points in $\R_{\ell}$, there exists a neighbourhood $[1,2)\cap [0,1]$ that does not contain points of $A$, and if $x\in[0,1]$, $x\neq1$ then there exists $N\in\N$ such that
   \begin{equation*}
       \frac{1}{N-1}\leq x < 1 - \frac{1}{N},
   \end{equation*}
@@ -1677,7 +1677,7 @@ Given that the distance function is continuous, it maps connected sets onto conn
 \begin{solution}\hfill
   \begin{itemize}
     \item $\{ x \}   = \big( (-\infty,x)\cup(x,\infty) \big)^c$.
-    \item Let $x\in\X$, $A\subset \X$ closed sch that $x\notin A = \overline{A}$. Then there exists $(a,b)\ni x$ open set such that $(a,b)\cap A = \varnothing$. The set $V = (-\infty,a)\cup(b,\infty)$ is a neighbourhood of $A$ and $(a,b)\cap V = \varnothing$.
+    \item Let $x\in\X$, $A\subset \X$ closed such that $x\notin A = \overline{A}$. Then there exists $(a,b)\ni x$ open set such that $(a,b)\cap A = \varnothing$. The set $V = (-\infty,a)\cup(b,\infty)$ is a neighbourhood of $A$ and $(a,b)\cap V = \varnothing$.
   \end{itemize}
 \end{solution}
 
@@ -1809,6 +1809,25 @@ Given that the distance function is continuous, it maps connected sets onto conn
   \end{itemize}
 \end{solution}
 
+\begin{exerr}{6}
+  Check the details of the proof of Theorem 34.2.
+
+  \textbf{Theorem 34.2:} Let $\X$ be a space in which one one-point sets are closed. Suppose that $\{ f_{\alpha} \}_{\alpha\in J}$ is an indexed family of continuous functions, $f_{\alpha}:\X\to\R$ satisfying the requirement that for each point $x_{0}\in\X$, and each neighbourhood $U$ of $x_{0}$, there is an index $\alpha$ such that $f_{\alpha}(x_{0})>0$ and $f_{\alpha}\equiv 0$ ourside $U$. Then the function $F:\X\to\R^J$ defined by $F(x) = (f_{\alpha}(x))_{\alpha\in J}$ is an imbedding of $\X$ in $\R^J$.
+\end{exerr}
+\begin{solution}
+  $F$ is continuous because $\R^J$ has the product topology and each $f_{\alpha}$ is continuous.
+
+  $F$ is injective because given $x\neq y$ there exists $\alpha\in J$ such that $f_{\alpha}(x)>0$ and $f_{\alpha}(y)=0$, then $F(x)\neq F(y)$.
+
+  $F$ is an imbedding, clearly it is bijective as a function from $\X$ to $F(\X)$, we need to see that for every open set $U$ in $\X$, $F(U)$ is open in $F(\X)$. Let $x\in F(U)$ and $x_{0}\in U$ be such that $F(x_{0}) = z_{0}$. Let $\alpha_{0}$ be such that $f_{\alpha_{0}}(x_{0})>0$ and $f_{\alpha_{0}}\equiv 0$ outside $U$. Define $V$ as $\pi^{-1}_{\alpha_{0}}((0,\infty))\in \R^J$ and $W = F(\X)\cap V$, clearly $W$ is open in $F(\X)$, let's see that $z_{0}\in W\subset F(U)$.
+  \begin{equation*}
+      \pi_{\alpha_{0}}(z_{0}) = \pi_{\alpha_{0}}\big( F(x_{0}) \big) = f_{\alpha_{0}}(x_{0})>0,
+  \end{equation*}
+  thus $z_{0}\in W$. To prove $W\subset F(U)$ let $z\in W$, $z = F(x)$ for some $x\in \X$ and $\pi_{\alpha_{0}}(z) \in (0,\infty)$. Given that $\pi_{\alpha_{0}}(z) = \pi_{\alpha_{0}}\big( F(x) \big) = f_{\alpha_{0}}(x)$ and $f_{\alpha_{0}}\equiv 0$ outside $U$, then $x\in U$ and $z = F(x)\in F(U)$. Therefore, $W\subset F(U)$.
+
+  Thus $F$ is an imbedding from $\X$ onto $\R^J$.
+\end{solution}
+
 \begin{exerr}{9}
   Let $\X$ be a compact Hausdorff space that is the union of the closed subspaces $\X_{1}$ and $\X_{2}$. If $\X_{1}$ and $\X_{2}$ are metrizable, show that $\X$ is metrizable. [Hint: Construct a countable collection $\A$ of open sets of $\X$ whose intersections with $\X_{i}$ form a basis for $\X_{i}$, for $i=1,2$. Assume $\X_{1}\backslash X_{2}$ and $\X_{2}\backslash \X_{1}$ belong to $\A$. Let $\B$ consist of finite intersections of elements of $\A$.]
 \end{exerr}
@@ -1826,7 +1845,7 @@ Given that the distance function is continuous, it maps connected sets onto conn
   let's see that $\B$ is a basis for $\X$.
   \begin{itemize}
     \item Given $x\in\X$, assume $x\in\X_{1}$, then given that $\B_{1}$ is a basis for $\X_{1}$, there exists $B\in \B_{1}$ such that $x\in B$. But $B = U\cap\X_{1}$ for some open set $U\subset\X$, therefore, $x\in U\in\B$.
-    \item If $U_{1},U_{2}\in B$ and $x\in U_{1}\cap U_{2}$, $U_{1} = \bigcap_{i\in J_{1}}B_{i}$, $U_{2} = \bigcap_{i\in J_{2}}B_{i}$, with $J_{1},J_{2}\subset\N$ finite. Let $U = \bigcap_{i\in J_{1}\cup J_{2}} B_{i}\in \B$ and $U = U_{1}\cap U_{2}$, then $x\in U\subset U_{1}\cap U_{2}$.
+    \item If $x\in U_{1}\cap U_{2}$, with $U_{1},U_{2}\in\B$, then $U_{1} = \bigcap_{i\in J_{1}}B_{i}$, $U_{2} = \bigcap_{i\in J_{2}}B_{i}$, $J_{1},J_{2}\subset\N$ finite. Let $U_{1}\cap U_{2} = \bigcap_{i\in J_{1}\cup J_{2}} B_{i}\in \B$.
   \end{itemize}
   Then $\B$ is a basis for $\X$, and clearly it defines the original topology.
 \end{solution}
